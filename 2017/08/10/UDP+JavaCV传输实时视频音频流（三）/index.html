@@ -74,7 +74,7 @@
 
     
         <meta property="article:published_time" content="8月 10, 2017" />
-        <meta property="article:modified_time" content="8月 10, 2017" />
+        <meta property="article:modified_time" content="8月 11, 2017" />
     
 
     <!-- The Twitter Card protocol -->
@@ -115,7 +115,7 @@
     "headline": "UDP+JavaCV传输实时视频音频流 （三）UDP传输",
     "url": "http://zpliu.top/2017/08/10/UDP+JavaCV传输实时视频音频流（三）/index.html",
     "datePublished": "8月 10, 2017",
-    "dateModified": "8月 10, 2017",
+    "dateModified": "8月 11, 2017",
     "description": "",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -476,41 +476,10 @@
 <p>具体代码可以进我的github仓库源码查看</p>
 </blockquote>
 <hr>
-<h3 id="udp传输很简单，一个接收，一个发送"><a href="#udp传输很简单，一个接收，一个发送" class="headerlink" title="udp传输很简单，一个接收，一个发送"></a>udp传输很简单，一个接收，一个发送</h3><h3 id="接收方："><a href="#接收方：" class="headerlink" title="接收方："></a>接收方：</h3><pre><code>//1.创建DatagramSocket，建立接收服务，数字为监听端口。  
-DatagramSocket ds = new DatagramSocket(10000);
-
-//2.定义数据包。用于存储数据。  
-byte[] buf = new byte[1024];  
-DatagramPacket dp = new DatagramPacket(buf,buf.length);
-
-while(true) //循环监听
-{  
-  //3，通过服务的receive方法将收到数据存入数据包中。  
-  ds.receive(dp);//阻塞式方法。
-
-  //4.获取数据      
-  byte[] bytes = dp.getData();
-  String data = new String(dp.getData(),0,dp.getLength());  
-
-  System.out.println(data);  
-}  
-//5，关闭资源  
-//ds.close();  
-</code></pre><hr>
-<h3 id="发送方："><a href="#发送方：" class="headerlink" title="发送方："></a>发送方：</h3><pre><code>//1，创建udp服务。通过DatagramSocket对象。  
-DatagramSocket ds = new DatagramSocket(8888);  
-
-byte[] buf = new String(&quot;内容&quot;).getBytes();
-
- //2，将数据封装成数据包。指定IP，端口。
-DatagramPacket dp = new DatagramPacket(buf,buf.length,InetAddress.getByName(&quot;192.168.0.108&quot;),10000);  
-
-//3，将数据包发送出去。
-ds.send(dp);  
-
-//4，关闭资源。  
-ds.close();  
-</code></pre><h3 id="这样就完成简单的发送了"><a href="#这样就完成简单的发送了" class="headerlink" title="这样就完成简单的发送了~~~"></a>这样就完成简单的发送了~~~</h3>
+<h3 id="udp传输很简单，一个接收，一个发送"><a href="#udp传输很简单，一个接收，一个发送" class="headerlink" title="udp传输很简单，一个接收，一个发送"></a>udp传输很简单，一个接收，一个发送</h3><h3 id="接收方："><a href="#接收方：" class="headerlink" title="接收方："></a>接收方：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//1.创建DatagramSocket，建立接收服务，数字为监听端口。  </span></div><div class="line">DatagramSocket ds = <span class="keyword">new</span> DatagramSocket(<span class="number">10000</span>);</div><div class="line"></div><div class="line"><span class="comment">//2.定义数据包。用于存储数据。  </span></div><div class="line"><span class="keyword">byte</span>[] buf = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];  </div><div class="line">DatagramPacket dp = <span class="keyword">new</span> DatagramPacket(buf,buf.length);</div><div class="line"></div><div class="line"><span class="keyword">while</span>(<span class="keyword">true</span>) <span class="comment">//循环监听</span></div><div class="line">&#123;  </div><div class="line">  <span class="comment">//3，通过服务的receive方法将收到数据存入数据包中。  </span></div><div class="line">  ds.receive(dp);<span class="comment">//阻塞式方法。</span></div><div class="line"></div><div class="line">  <span class="comment">//4.获取数据      </span></div><div class="line">  <span class="keyword">byte</span>[] bytes = dp.getData();</div><div class="line">  String data = <span class="keyword">new</span> String(dp.getData(),<span class="number">0</span>,dp.getLength());  </div><div class="line"></div><div class="line">  System.out.println(data);  </div><div class="line">&#125;  </div><div class="line"><span class="comment">//5，关闭资源  </span></div><div class="line"><span class="comment">//ds.close();</span></div></pre></td></tr></table></figure>
+<hr>
+<h3 id="发送方："><a href="#发送方：" class="headerlink" title="发送方："></a>发送方：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//1，创建udp服务。通过DatagramSocket对象。  </span></div><div class="line">DatagramSocket ds = <span class="keyword">new</span> DatagramSocket(<span class="number">8888</span>);  </div><div class="line"></div><div class="line"><span class="keyword">byte</span>[] buf = <span class="keyword">new</span> String(<span class="string">"内容"</span>).getBytes();</div><div class="line"></div><div class="line"> <span class="comment">//2，将数据封装成数据包。指定IP，端口。</span></div><div class="line">DatagramPacket dp = <span class="keyword">new</span> DatagramPacket(buf,buf.length,InetAddress.getByName(<span class="string">"192.168.0.108"</span>),<span class="number">10000</span>);  </div><div class="line"></div><div class="line"><span class="comment">//3，将数据包发送出去。</span></div><div class="line">ds.send(dp);  </div><div class="line"></div><div class="line"><span class="comment">//4，关闭资源。  </span></div><div class="line">ds.close();</div></pre></td></tr></table></figure>
+<h3 id="这样就完成简单的发送了"><a href="#这样就完成简单的发送了" class="headerlink" title="这样就完成简单的发送了~~~"></a>这样就完成简单的发送了~~~</h3>
     
 
     
@@ -557,6 +526,14 @@ ds.close();
             <!-- Post Prev & Next Nav -->
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
+    
+        <a href="/2017/08/11/UDP-JavaCV传输实时视频音频流-（四）/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            上一篇
+        </a>
     
 
     <!-- Section Spacer -->
@@ -656,7 +633,7 @@ ds.close();
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">11</span></a>
+                <a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">13</span></a>
             </ul>
         </li>
         
@@ -674,7 +651,7 @@ ds.close();
             </a>
             <ul class="dropdown-menu">
                 <li>
-                <a class="sidebar_archives-link" href="/categories/UDP-JavaCV传输实时视频音频流/">UDP+JavaCV传输实时视频音频流<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/xxx/">xxx<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/教你快速搭建专属于你的博客/">教你快速搭建专属于你的博客<span class="sidebar_archives-count">6</span></a>
+                <a class="sidebar_archives-link" href="/categories/UDP-JavaCV传输实时视频音频流/">UDP+JavaCV传输实时视频音频流<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/categories/xxx/">xxx<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/教你快速搭建专属于你的博客/">教你快速搭建专属于你的博客<span class="sidebar_archives-count">6</span></a>
             </ul>
         </li>
         
@@ -712,7 +689,7 @@ ds.close();
         <li>
             <a href="/archives">
                 文章总数
-                <span class="sidebar-badge">11</span>
+                <span class="sidebar-badge">13</span>
             </a>
         </li>
         
